@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { useAppStore } from '../store/appStore';
+import { useHabitsStore } from '../store/habitsStore';
 import { SetupScreen } from '../ui/SetupScreen';
 import { MainScreen } from '../ui/MainScreen';
 
@@ -15,9 +16,13 @@ export const AppProvider: React.FC = () => {
   useEffect(() => {
     if (isInitialized) {
       // Check if this is first time user (no habits configured)
-      // For now, we'll show setup screen if habits are empty
-      // In a real app, you might check a "hasCompletedSetup" flag
-      setShowSetup(true); // Always show setup for MVP-1
+      // For MVP-2, we'll check if habits have been customized from defaults
+      const habits = useHabitsStore.getState().habits;
+      const hasCustomHabits = habits.some(habit => 
+        habit.label !== 'Exercise' && habit.label !== 'Read' && habit.label !== 'Meditate' &&
+        habit.label !== 'Junk Food' && habit.label !== 'Social Media' && habit.label !== 'Procrastinate'
+      );
+      setShowSetup(!hasCustomHabits);
     }
   }, [isInitialized]);
 

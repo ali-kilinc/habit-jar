@@ -9,6 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { useHabitsStore } from '../store/habitsStore';
+import { useAppStore } from '../store/appStore';
 import { Habit } from '../types';
 
 interface SetupScreenProps {
@@ -17,6 +18,7 @@ interface SetupScreenProps {
 
 export const SetupScreen: React.FC<SetupScreenProps> = ({ onComplete }) => {
   const { habits, setHabitLabel, setHabitDescription, resetHabits } = useHabitsStore();
+  const { applyHabitDelta } = useAppStore();
   const [isValid, setIsValid] = useState(false);
 
   // Validate all habits have labels
@@ -39,14 +41,37 @@ export const SetupScreen: React.FC<SetupScreenProps> = ({ onComplete }) => {
     setHabitDescription(habitId, description);
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!isValid) {
       Alert.alert('Invalid Input', 'All habits must have a single-word label (1-16 characters)');
       return;
     }
 
-    // Save and complete setup
-    onComplete();
+    try {
+      // Save the current state to persistence
+      const { saveState } = await import('../data/storage');
+      const currentState = {
+        version: 1,
+        habits: habits,
+        day: {
+          date: new Date().toISOString().split('T')[0],
+          total: 0,
+          entries: [],
+        },
+        profile: {
+          level: 0,
+          coinsCumulative: 0,
+        },
+      };
+      
+      await saveState(currentState);
+      
+      // Complete setup
+      onComplete();
+    } catch (error) {
+      console.error('Failed to save setup:', error);
+      Alert.alert('Error', 'Failed to save your habits. Please try again.');
+    }
   };
 
   const goodHabits = habits.filter(h => h.kind === 'GOOD');

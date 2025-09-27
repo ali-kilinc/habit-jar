@@ -64,15 +64,29 @@ export const useAppStore = create<AppState>((set, get) => ({
     // Apply the delta using domain logic
     const result = applyDelta(dayState, profileState, habit.weight);
     
+    // Update the day store with the new entry that includes the habitId
+    const updatedEntry = {
+      ...result.day.entries[result.day.entries.length - 1],
+      habitId,
+    };
+    
+    const updatedDay = {
+      ...result.day,
+      entries: [
+        ...result.day.entries.slice(0, -1),
+        updatedEntry,
+      ],
+    };
+    
     // Update both stores
-    useDayStore.getState().hydrate(result.day);
+    useDayStore.getState().hydrate(updatedDay);
     useProfileStore.getState().hydrate(result.profile);
     
     // Save to storage
     const currentState: PersistedState = {
       version: 1,
       habits: useHabitsStore.getState().habits,
-      day: result.day,
+      day: updatedDay,
       profile: result.profile,
     };
     
