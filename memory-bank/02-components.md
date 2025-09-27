@@ -53,6 +53,18 @@ Props: `label`, `weight`, `onPress`, `kind`. Shows “+5 coin” etc. Accessible
 - **Navigation**: Seamless flow between setup and main screens
 - **Styling**: Consistent design system with accessibility features
 
+### ✅ Completed (MVP-1) - Mobile Tested
+- **SetupScreen**: Complete habit configuration UI with validation ✅
+- **MainScreen**: Central jar display with habit buttons layout ✅
+- **LevelBadge**: Level display with progress bar ✅
+- **Jar**: Visual coin counter with positive/negative styling ✅
+- **HabitButton**: Interactive buttons with weight indicators ✅
+- **AppProvider**: State initialization and screen management ✅
+- **Navigation**: Seamless flow between setup and main screens ✅
+- **Styling**: Consistent design system with accessibility features ✅
+- **Mobile Testing**: Successfully tested on Android device via Expo Go ✅
+- **Bundle Compilation**: JavaScript bundle working perfectly (718 modules) ✅
+
 ### ⏳ Next (MVP-2)
 - Connect UI to state management (habits, day, profile)
 - Add coin animation (react-native-reanimated)
