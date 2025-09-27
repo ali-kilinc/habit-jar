@@ -43,8 +43,18 @@ Props: `label`, `weight`, `onPress`, `kind`. Shows “+5 coin” etc. Accessible
 - State management with Zustand stores
 - Testing infrastructure with Jest + TypeScript
 
-### ⏳ Next (MVP-1)
-- SetupScreen UI for habit configuration
-- MainScreen UI with Jar and HabitButtons
-- Basic navigation between screens
-- Component styling and layout
+### ✅ Completed (MVP-1)
+- **SetupScreen**: Complete habit configuration UI with validation
+- **MainScreen**: Central jar display with habit buttons layout
+- **LevelBadge**: Level display with progress bar
+- **Jar**: Visual coin counter with positive/negative styling
+- **HabitButton**: Interactive buttons with weight indicators
+- **AppProvider**: State initialization and screen management
+- **Navigation**: Seamless flow between setup and main screens
+- **Styling**: Consistent design system with accessibility features
+
+### ⏳ Next (MVP-2)
+- Connect UI to state management (habits, day, profile)
+- Add coin animation (react-native-reanimated)
+- Implement real-time state updates
+- Add haptic feedback on button presses
