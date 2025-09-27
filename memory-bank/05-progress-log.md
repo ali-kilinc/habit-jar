@@ -90,14 +90,14 @@ Use this file to jot down scope changes, decisions, and daily notes.
 - ✅ **Touch Interactions**: All buttons responsive and accessible
 - ✅ **Performance**: Smooth loading and interactions on Android
 
-## 2025-01-27 - MVP-2 PHASE 1 COMPLETED ✅
+## 2025-01-27 - MVP-2 COMPLETED ✅
 - **State Integration**: Successfully connected UI components to state management
 - **Real-time Updates**: All UI components now properly reflect state changes
 - **Persistence**: Complete state saving and loading functionality
 - **Testing**: Comprehensive test coverage with 23 passing tests
 - **Mobile Testing**: Successfully tested on Android device via Expo Go
 
-### MVP-2 Phase 1 Implementation Details
+### MVP-2 Implementation Details
 - **AppProvider Logic**: Fixed first-time user detection and setup flow
 - **State Flow**: Corrected habitId tracking in day entries
 - **Persistence Integration**: Setup screen now properly saves state
@@ -127,11 +127,72 @@ Use this file to jot down scope changes, decisions, and daily notes.
 - ✅ **Habit Buttons**: Tap to add/remove coins with immediate feedback
 - ✅ **Persistence**: State saves and loads correctly on app restart
 
-## Next: MVP-2 PHASE 2 - Animations & UX Enhancements
-- Add coin animation using react-native-reanimated (in/out of jar)
-- Implement haptic feedback on button presses
-- Add smooth transitions and micro-interactions
-- Enhance visual feedback and user experience
+## Next: MVP-3 - Keyboard & Input Improvements
+- Fix keyboard covering habits in setup screen
+- Remove single-word restriction, allow spaces (max 16 chars)
+- Improve mobile keyboard experience
+
+## New MVP Structure (Simplified Phases)
+
+### MVP-3: Keyboard & Input Improvements
+- **Goal**: Fix mobile keyboard experience and input validation
+- **Issues to Fix**:
+  - Keyboard covers habits in setup screen on mobile
+  - Remove single-word restriction, allow spaces (max 16 chars)
+- **Testing**: Real Android device with Expo Go
+
+### MVP-4: Visual Button Enhancement
+- **Goal**: Replace text with coin images and fancy graphics
+- **Implementation**:
+  - Use coin image on buttons instead of 'coin' text
+  - Create fancy graphics for +5, -5, +3, -3, +1, -1 values
+  - User provides coin image to place in assets folder
+- **Testing**: Real Android device with Expo Go
+
+### MVP-5: Jar Visual Enhancement
+- **Goal**: Create visual jar that fills with coins
+- **Implementation**:
+  - Replace jar with jar image
+  - Fill jar with coins based on daily total (0-100 ratio)
+  - Use same coin image from MVP-4
+  - Empty when 0 or negative, full when 100+
+- **Testing**: Real Android device with Expo Go
+
+### MVP-6: Haptic Feedback
+- **Goal**: Add tactile feedback to button presses
+- **Implementation**:
+  - Add haptic feedback to all HabitButton presses
+  - Different patterns for good vs bad habits
+  - Light haptic for coin in, medium for coin out
+- **Testing**: Real Android device with Expo Go
+
+### MVP-7: Smooth Transitions & Micro-interactions
+- **Goal**: Enhance visual feedback and user experience
+- **Implementation**:
+  - Smooth transitions between setup and main screens
+  - Micro-animations for level changes
+  - Subtle loading states and feedback
+  - Enhanced button press animations (scale, shadow)
+  - Progress bar animations for level progression
+- **Testing**: Real Android device with Expo Go
+
+### MVP-8: Coin Animations
+- **Goal**: Animate coins moving between buttons and jar
+- **Implementation**:
+  - Positive buttons: coins jump from button to jar
+  - Negative buttons: coins jump from jar to button
+  - Smooth animation using react-native-reanimated
+- **Testing**: Real Android device with Expo Go
+
+### MVP-9: Visual Polish & Feedback
+- **Goal**: Final visual enhancements and polish
+- **Implementation**:
+  - Enhanced jar visual feedback (fill level, shine effects)
+  - Visual indicators for level changes
+  - Improved button states (pressed, disabled, etc.)
+  - Subtle particle effects or visual flourishes
+  - Optimize for different screen sizes and orientations
+- **Testing**: Real Android device with Expo Go
 
 ## Template
 - Date:

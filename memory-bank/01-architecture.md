@@ -68,7 +68,7 @@ export interface PersistedState {
 - Schema versioning with migrations (guard unknown fields).
 - Defensive parsing; on corruption, keep a backup (`hj:v1:state:backup`) and re-init with minimal loss.
 
-## Implementation Status (MVP-2 Phase 1 Complete)
+## Implementation Status (MVP-2 Complete)
 ### ✅ Completed Components
 - **TypeScript Data Model**: All interfaces defined and implemented
 - **Domain Logic**: Pure functions with comprehensive test coverage (12/12 tests passing)
@@ -99,9 +99,23 @@ src/
 │   ├── level.ts           # Core business logic
 │   └── __tests__/level.test.ts  # Domain tests
 ├── data/storage.ts        # AsyncStorage adapter
-└── store/
-    ├── habitsStore.ts     # Habit management
-    ├── dayStore.ts        # Daily state
-    ├── profileStore.ts    # User profile
-    └── appStore.ts        # Combined interactions
+├── store/
+│   ├── habitsStore.ts     # Habit management
+│   ├── dayStore.ts        # Daily state
+│   ├── profileStore.ts    # User profile
+│   └── appStore.ts        # Combined interactions
+├── ui/
+│   ├── SetupScreen.tsx    # Habit configuration
+│   ├── MainScreen.tsx     # Main tracking interface
+│   ├── HabitButton.tsx    # Interactive habit buttons
+│   ├── Jar.tsx            # Coin jar display
+│   └── LevelBadge.tsx     # Level progression
+└── app/
+    └── AppProvider.tsx    # App state management
 ```
+
+## Next Phase: MVP-3
+**Focus**: Keyboard & Input Improvements
+- Fix keyboard covering habits in setup screen
+- Remove single-word restriction, allow spaces (max 16 chars)
+- Improve mobile keyboard experience

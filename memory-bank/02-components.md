@@ -73,8 +73,15 @@ Props: `label`, `weight`, `onPress`, `kind`. Shows “+5 coin” etc. Accessible
 - **Mobile Testing**: Successfully tested on Android device via Expo Go ✅
 - **Test Coverage**: 23 tests covering all critical functionality ✅
 
-### ⏳ Next (MVP-2 Phase 2)
-- Add coin animation using react-native-reanimated (in/out of jar)
-- Implement haptic feedback on button presses
-- Add smooth transitions and micro-interactions
-- Enhance visual feedback and user experience
+### ✅ Completed (MVP-2)
+- **State Integration**: UI components fully connected to state management ✅
+- **Real-time Updates**: Button presses immediately update jar and level ✅
+- **Persistence**: Complete state saving and loading functionality ✅
+- **Setup Flow**: Habit configuration properly saves and persists ✅
+- **Mobile Testing**: Successfully tested on Android device via Expo Go ✅
+- **Test Coverage**: 23 tests covering all critical functionality ✅
+
+### ⏳ Next (MVP-3)
+- Fix keyboard covering habits in setup screen on mobile
+- Remove single-word restriction, allow spaces (max 16 chars)
+- Improve mobile keyboard experience
