@@ -68,7 +68,7 @@ export interface PersistedState {
 - Schema versioning with migrations (guard unknown fields).
 - Defensive parsing; on corruption, keep a backup (`hj:v1:state:backup`) and re-init with minimal loss.
 
-## Implementation Status (MVP-1 Complete)
+## Implementation Status (MVP-2 Phase 1 Complete)
 ### ✅ Completed Components
 - **TypeScript Data Model**: All interfaces defined and implemented
 - **Domain Logic**: Pure functions with comprehensive test coverage (12/12 tests passing)
@@ -76,6 +76,8 @@ export interface PersistedState {
 - **State Management**: Zustand stores with proper separation of concerns
 - **Testing Infrastructure**: Jest + TypeScript configuration with mocks
 - **UI Layer**: Complete user interface with all components
+- **State Integration**: UI ↔ State ↔ Persistence fully connected
+- **Real-time Updates**: Button presses immediately update jar and level
 - **Mobile Testing**: Successfully tested on Android device via Expo Go
 - **Bundle Compilation**: JavaScript bundle working perfectly (718 modules)
 
